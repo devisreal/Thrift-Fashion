@@ -29,6 +29,9 @@ font-family: 'Work Sans', sans-serif;
 .w-fit {
   width: fit-content !important;
 }
+.h-full {
+  height: 100vh !important;
+}
 .sticky {
   position: sticky !important;
 }
@@ -123,7 +126,7 @@ input[type="number"] {
   color: var(--blue-shade-secondary) !important;
 }
 .bg-mysecondary {
-  background-color: var(--secondary-color);
+  background-color: var(--blue-shade-primary) !important;
 }
 .bg-mysecondary-outline {
   border: 2px solid var(--primary-color) !important;
@@ -238,6 +241,12 @@ textarea {
   box-shadow: none !important;
 }
 
+.btn.nav-btn:focus,
+.btn.nav-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+}
+
 .btn-myprimary {
   background-color: var(--blue-shade-secondary) !important;
   color: var(--white) !important;
@@ -287,11 +296,16 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Custom */
 
 /* ! Navbar Styles */
+@media screen and (max-width: 575px) {
+  .navbar {
+    width: 95% !important;
+  }
+}
 .nav-link {
   font-weight: 500;
   color: black !important;
 }
-.nav-link.icon{
+.nav-link.icon {
   padding: 0 5px;
 }
 .nav-link.active {
@@ -301,9 +315,8 @@ input[type="search"]::-webkit-search-results-decoration {
   color: var(--blue-shade-secondary) !important;
 }
 
-
 /* Intro Bg */
-#intro-bg{
+#intro-bg {
   height: 80vh;
   display: grid;
   place-content: center;

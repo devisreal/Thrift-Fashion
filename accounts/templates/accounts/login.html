@@ -1,0 +1,47 @@
+<!-- The html page this page is extending -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- The css styles used in the page -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock stylesheets %}
+<!-- The title of the page -->
+{% block title %}Login || Thrift Fashion {% endblock title %}
+<!-- The content of the page -->
+{% block main %}
+
+<div class=" h-full d-grid align-content-center" >
+   <div class="col-md-5 col-sm-7 col-11 bg-white p-4 mx-auto my-shadow-md rounded-lg mt-md-5">
+      <div class="text-center">
+         <h4 class="m-0 p-0">Login</h4>
+         <p class="m-0 mt-2 p-0 text-sm">Enter your login details</p>
+      </div>
+      
+      <form action="{% url 'accounts:login' %}" class="mt-5" method="POST">
+         {% csrf_token %}
+         <div class="form-floating mb-3">
+            <input type="text" class="form-control border rounded-0 text-sm" id="username" name="username" placeholder="" required>
+            <label for="username" class="font-semibold">Username</label>
+         </div>
+         <div class="form-floating">
+            <input type="password" class="form-control border rounded-0 text-sm" id="password" name="password" placeholder="" required>
+            <label for="password" class="font-semibold">Password</label>
+         </div>
+
+         <div class="w-fit mx-auto mb-3 mt-4">
+            <button class="btn btn-success font-medium" type="submit">Login</button>
+         </div>         
+         <hr class="w-25 mx-auto my-1 mt-2 p-0">
+         <div class="w-fit mx-auto">
+            <small class="text-xs font-medium">
+               Don't have an account?
+               <a href="{% url 'accounts:register' %}" class="text-decoration-none font-semibold sign-up-btn">Sign Up</a>
+               here
+            </small>
+         </div>
+         
+      </form>
+   </div>
+</div>
+
+{% endblock main %}
