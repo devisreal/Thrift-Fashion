@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'thrift_fashion',
     'crispy_forms',
+    'cart',
 ]
 
 MIDDLEWARE = [

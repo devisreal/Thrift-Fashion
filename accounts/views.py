@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages, auth
+from django.contrib import messages
 from .models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
@@ -90,4 +90,4 @@ def logout(request):
     # Return success message
    messages.info(request, 'See you soon 🙂')
     # Redirect to home page
-   return redirect('home')
+   return redirect(request.META.get('HTTP_REFERER'))

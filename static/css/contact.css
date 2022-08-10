@@ -34,11 +34,11 @@ body{
     background-image: url("../img/contact-img/thrift-img_1.jpg");
 }
 
-a{
+a.contact-link{
   color: #0099ff;  
 }
 
-a:hover {
+a.contact-link:hover {
     color: #a2d9ff !important;
   }
 
