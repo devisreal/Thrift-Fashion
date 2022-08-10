@@ -33,7 +33,33 @@
                </li>
             </ul>
             <div class="d-flex ms-3">
-               Logged IN user   
+               <li class="nav-item dropdown m-0 list-unstyled">
+                  <button class="dropdown-toggle btn text-white" href="" id="navbarDarkDropdownMenuLink" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                     <img src="{{request.user.profile_image.url}}" alt="User Avatar" class="img-fluid rounded-full"
+                        style="width: 40px;height: 40px;object-fit: cover;">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-light  dropdown-menu-end dropdown-menu-lg-end"
+                     aria-labelledby="navbarDarkDropdownMenuLink">                     
+                     <li>
+                        <a href="" class="dropdown-item font-medium d-flex align-items-center m-0 p-0 px-3">
+                           <i class="ri-settings-3-fill text-xl"></i>&nbsp;
+                           Settings
+                        </a>
+                     </li>            
+                     <li>
+                        <hr class="dropdown-divider">
+                     </li>
+                     <li class="p-0">
+                        <a href="{% url 'accounts:logout' %}"
+                           class="dropdown-item px-3 py-0 text-danger font-medium d-flex align-items-center">
+                           <i class="ri-login-circle-fill text-xl"></i>
+                           &nbsp;
+                           Logout
+                        </a>
+                     </li>
+                  </ul>
+               </li>
             </div>
          </div>
       </div>
@@ -65,7 +91,7 @@
                <a class="nav-link {% if request.path == contact %} active {% endif %} " href="{% url 'contact' %}">Contact</a>
             </li>
          </ul>
-         <div class="d-flex ms-3">
+         <div class="d-flex ms-md-3">
             <a class="nav-link icon " href="">
                <i class="ri-shopping-cart-2-fill text-xl"></i>
             </a>

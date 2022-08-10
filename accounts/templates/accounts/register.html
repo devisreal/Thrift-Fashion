@@ -17,56 +17,48 @@
          <p class="m-0 mt-2 p-0 text-sm">Create your thrift account</p>
       </div>
 
-      <form action="" class="mt-5">
-         <!-- <div class="form-floating mb-3">
-            <input type="text" class="form-control border rounded-0" id="username" placeholder="" required>
-            <label for="username" class="font-semibold">Email address</label>
-         </div>
-         <div class="form-floating mb-3">
-            <input type="text" class="form-control border rounded-0" id="username" placeholder="" required>
-            <label for="username" class="font-semibold">Email address</label>
-         </div> -->
-
+      <form action="{% url 'accounts:register' %}" class="mt-5" method="POST">
+         {% csrf_token %}
          <div class="row row-cols-1 row-cols-md-2 g-2 g-lg-3 mb-3">
             <div class="col">
                <div class="form-floating">
-                  <input type="text" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+                  <input type="text" class="form-control border rounded-0 text-sm" id="username" name="firstname" placeholder="" required>
                   <label for="username" class="font-medium">Firstname</label>
                </div>
             </div>
             <div class="col">
                <div class="form-floating">
-                  <input type="text" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+                  <input type="text" class="form-control border rounded-0 text-sm" id="username" name="lastname" placeholder="" required>
                   <label for="username" class="font-medium">Lastname</label>
                </div>
             </div>
          </div>
          
          <div class="form-floating mb-3">
-            <input type="email" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+            <input type="email" class="form-control border rounded-0 text-sm" id="username" name="email" placeholder="" required>
             <label for="username" class="font-medium">Email address</label>
          </div>
 
          <div class="form-floating mb-3">
-            <input type="text" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+            <input type="text" class="form-control border rounded-0 text-sm" id="username" name="username" placeholder="" required>
             <label for="username" class="font-medium">Username</label>
          </div>
 
          <div class="form-floating mb-3">
-            <input type="text" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+            <input type="text" class="form-control border rounded-0 text-sm" id="username" name="contact_phone" placeholder="" required>
             <label for="username" class="font-medium">Contact Phone</label>
          </div>
 
          <div class="row row-cols-1 row-cols-md-2 g-2 g-lg-3 mb-3">
             <div class="col">
                <div class="form-floating">
-                  <input type="password" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+                  <input type="password" class="form-control border rounded-0 text-sm" id="username" name="password1" placeholder="" required>
                   <label for="username" class="font-medium">Password</label>
                </div>
             </div>
             <div class="col">
                <div class="form-floating">
-                  <input type="password" class="form-control border rounded-0 text-sm" id="username" placeholder="" required>
+                  <input type="password" class="form-control border rounded-0 text-sm" id="username" name="password2" placeholder="" required>
                   <label for="username" class="font-medium">Password, again</label>
                </div>
             </div>
