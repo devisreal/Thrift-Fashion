@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/products.css' %}" />
 {% endblock stylesheets %}
 <!-- The title of the page -->
-{% block title %}Home || Thrift Fashion {% endblock title %}
+{% block title %}Products || Thrift Fashion {% endblock title %}
 <!-- The content of the page -->
 {% block main %}
 <div class="text-white" id="intro-bg">
@@ -14,19 +14,90 @@
 </div>
 <main>
    <div class="container">
-      <div class="row">
-         <div class="col-md-4 col-12 row_1_img">
-            <div class="col">Male</div>
+      <div class="row product_row_1">
+         <div class="col-md-4 col-12">
+            <div class="col row_1_img">
+               <div class="col flexproperty">
+                  <h3 class="text-white mb-5">Male Wears</h3>
+               </div>
+            </div>
          </div>
-         <div class="col-md-4 col-12 row_2_img">
-            <div class="col">Female</div>
+         <div class="col-md-4 col-12">
+            <div class="col row_2_img">
+               <div class="col flexproperty">
+                  <h3 class="text-white mb-5">Male Wears</h3>
+               </div>
+            </div>
          </div>
-         <div class="col-md-4 col-12 row_3_img">
-            <div class="col">Kiddies</div>
+         <div class="col-md-4 col-12">
+            <div class="col row_3_img">
+               <div class="col flexproperty">
+                  <h3 class="text-white mb-5">Male Wears</h3>
+               </div>
+            </div>
          </div>
       </div>
    </div>
 </main>
+<nav>
+   <div class="container">
+      <div class="row product_row_2">
+         <div class="col-md-8 col-12">
+            <h1 class="trending">Trending this Week</h1>
+         </div>
+         <div class="col-md-4 col-12 ps-auto">
+            <a href="#" class="text-decoration-none hovereffect h6">Baby</a>
+            <a href="#" class="text-decoration-none hovereffect h6 ps-4">Men</a>
+            <a href="#" class="text-decoration-none hovereffect h6 ps-4">Women</a>
+            <a href="#" class="text-decoration-none hovereffect h6 ps-4">Fashion</a>
+         </div>
+      </div>
+      <hr>
+   </div>
+</nav>
+<aside>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-3 col-12" style="height: fit-content;">
+            <div class="col row_2_img_1"></div>
+            <div class="col">
+               <h6>Vintage Shirt</h6>
+               <p>$80.00 <span class="line_over">$300</span></p>
+            </div>
+         </div>
+         <div class="col-md-3 col-12" style="height: fit-content;">
+            <div class="col row_2_img_2"></div>
+            <div class="col">
+               <h6>Round Neck Shirt</h6>
+               <p>$80.00 <span class="line_over">$300</span></p>
+            </div>
+         </div>
+         <div class="col-md-3 col-12" style="height: fit-content;">
+            <div class="col row_2_img_3"></div>
+            <div class="col">
+               <h6>Wrap Gown</h6>
+               <p>$80.00 <span class="line_over">$300</span></p>
+            </div>
+         </div>
+         <div class="col-md-3 col-12" style="height: fit-content;">
+            <div class="col">
+               <div class="col row_2_img_4"></div>
+               <div class="col">
+                  <h6>Baggy Pants</h6>
+                  <p>$80.00 <span class="line_over">$300</span></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</aside>
+<nav>
+   <div class="row">
+      <div class="col-12 testimony">
+         
+      </div>
+   </div>
+</nav>
 
 <a href="{% url 'product_detail' %}">Product Detail</a>
 {% endblock main %}

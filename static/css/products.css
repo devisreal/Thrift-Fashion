@@ -1,12 +1,84 @@
 .row_1_img{
     height: 300px;
-    background: url(../../static/img/product_img/thrift_img_037.jpg) no-repeat center center/cover;
+    background: url(../../static/img/product_img/thrift_img_037.jpg) no-repeat center center/contain;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.7s;
+    cursor: pointer;
+}
+.row_1_img:hover{
+    transform: scale(1.04);
 }
 .row_2_img{
     height: 300px;
-    background: url(../../static/img/product_img/thrift_img_056.jpg) no-repeat center center/cover;
+    background: url(../../static/img/product_img/thrift_img_18a.png) no-repeat center center/contain;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.7s;
+    cursor: pointer;
 }
-.row_2_img{
+.row_2_img:hover{
+    transform: scale(1.04);
+}
+.row_3_img{
     height: 300px;
-    background: url(../../static/img/product_img/thrift_img_0943.jpg) no-repeat center center/cover;
+    background: url(../../static/img/product_img/thrift_img_0943.jpg) no-repeat center center/contain;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.7s;
+    cursor: pointer;
+}
+.row_3_img:hover{
+    transform: scale(1.04);
+}
+.product_row_1{
+    margin-top: 100px;
+}
+.flexproperty{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hovereffect{
+    color: black;
+}
+.hovereffect:hover{
+    color: black;
+    border-bottom: 2px solid red;
+    padding-bottom: 10px;
+}
+.trending{
+    color: black;
+}
+.product_row_2{
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+hr{
+    margin-bottom: 100px;
+}
+.row_2_img_1{
+    height: 300px;
+    background: url(../../static/img/product_img/thrift_img_055.jpg) no-repeat center center/contain;
+}
+.row_2_img_2{
+    height: 300px;
+    background: url(../../static/img/product_img/thrift_img_0323.jpg) no-repeat center center/contain;
+}
+.row_2_img_3{
+    height: 300px;
+    background: url(../../static/img/product_img/thrift_img_056.jpg) no-repeat center center/contain;
+}
+.row_2_img_4{
+    height: 300px;
+    background: url(../../static/img/product_img/thrift_img_0378.jpg) no-repeat center center/contain;
+}
+.line_over{
+    text-decoration: line-through;
+    color: rgba(218, 165, 32, 0.532);
+}    
+.testimony{
+    background-color: black;
+    color: white;
 }
