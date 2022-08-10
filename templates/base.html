@@ -28,14 +28,20 @@
    {% block stylesheets %}{% endblock stylesheets %}
 
 </head>
-<body class="">
+{% url 'accounts:login' as login %}
+{% url 'accounts:register' as register %}
+<body class="{% if request.path == login or request.path == register %} bg-gray-100 {% endif %}">
 
+   <!-- <div class="bg-opacity-50"></div> -->
    {% include 'partials/navbar.html' %}
-   {% block main %}{% endblock main %}
-   
+   {% block main %}{% endblock main %}   
    <!-- Javascript Vendors -->
+
    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
 
    
+
+   
+
 </body>
 </html>

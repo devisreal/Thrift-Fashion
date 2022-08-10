@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'thrift_fashion',
     'crispy_forms',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +155,6 @@ MESSAGE_TAGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = 'accounts:login'
