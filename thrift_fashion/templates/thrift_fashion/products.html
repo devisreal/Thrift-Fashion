@@ -3,15 +3,30 @@
 {% load static %}
 <!-- The css styles used in the page -->
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/products.css' %}" />
 {% endblock stylesheets %}
 <!-- The title of the page -->
 {% block title %}Home || Thrift Fashion {% endblock title %}
 <!-- The content of the page -->
 {% block main %}
 <div class="text-white" id="intro-bg">
-   <h1>Page Name</h1>
+   <h1>Products</h1>
 </div>
+<main>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 col-12 row_1_img">
+            <div class="col">Male</div>
+         </div>
+         <div class="col-md-4 col-12 row_2_img">
+            <div class="col">Female</div>
+         </div>
+         <div class="col-md-4 col-12 row_3_img">
+            <div class="col">Kiddies</div>
+         </div>
+      </div>
+   </div>
+</main>
 
 <a href="{% url 'product_detail' %}">Product Detail</a>
 {% endblock main %}
