@@ -1,0 +1,22 @@
+
+#tables{
+    margin-bottom: 30px;
+}
+
+.wrapper {
+    /* height: 50px; */
+    width: 70px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: white;
+    color: black;
+}
+
+.wrapper p{
+    width: 20%;
+    text-align: center;    
+    cursor: pointer;
+    user-select: none;
+}
+
