@@ -1,3 +1,5 @@
+/* StyleSheet For Products */
+
 .row_1_img{
     height: 300px;
     background: url(../img/product_img/thrift_img_037.jpg) no-repeat center center/contain;
@@ -69,7 +71,7 @@ hr{
     margin-bottom: 30px;
 }
 .carty:hover{
-    color: red;
+    color: #0099ff;
 }
 .anchor{
     color: transparent;
@@ -296,4 +298,34 @@ hr{
 }
 .footer_heading:hover{
     color:  rgba(218, 165, 32, 0.532);
+}
+
+/* stylesheet for Product Details */
+.faint_color{
+    background-color: #0099ff;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 100px;
+}
+.puffy{
+    color: black;
+    text-justify: auto;
+}
+.descript_text{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.missy{
+    margin-bottom: 100px;
+}
+.paragraph_2{
+    margin-top: 70px;
+}
+.last_img{
+    background: url(../img/product_img/vintage.jpg) no-repeat center center/contain;
+    margin-bottom: 100px;
+}
+.authentication{
+    margin-bottom: 120px;
 }
