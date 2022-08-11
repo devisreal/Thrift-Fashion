@@ -212,15 +212,19 @@ h4,
 h5,
 h6,
 button,
-.btn {
+.btn, th {
   font-family: "Jost", sans-serif;
+}
+
+th[scope="row"]{
+  font-weight: 500 !important;
 }
 
 p,
 small,
 li,
 input,
-textarea {
+textarea, td {
   font-family: "Work Sans", sans-serif;
 }
 
