@@ -302,6 +302,7 @@ hr{
 
 /* stylesheet for Product Details */
 .faint_color{
+    margin-top: 100px;
     color: black;
     padding-top: 10px;
     padding-bottom: 10px;
