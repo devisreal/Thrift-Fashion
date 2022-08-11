@@ -24,10 +24,10 @@ def login(request):
                return redirect('home')
             else:                
                messages.warning(request, 'Account is not active')
-               return render(request, 'account/login.html')                         
+               return render(request, 'accounts/login.html')                         
          else:
             messages.error(request, 'Please enter valid details')
-            return render(request, 'account/login.html')
+            return render(request, 'accounts/login.html')
    return render(request, 'accounts/login.html')
 
 
