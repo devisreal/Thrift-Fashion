@@ -1,0 +1,15 @@
+<!-- The html page this page is extending -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- The css styles used in the page -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+{% endblock stylesheets %}
+<!-- The title of the page -->
+{% block title %}Cart || Thrift Fashion {% endblock title %}
+<!-- The content of the page -->
+{% block main %}
+<div class="text-white" id="intro-bg">
+   <h1>Page Name</h1>
+</div>
+{% endblock main %}
