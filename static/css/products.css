@@ -74,7 +74,7 @@ hr{
     color: #0099ff;
 }
 .anchor{
-    color: transparent;
+    color: red;
 }
 .all_img_cart{
     display: flex;
