@@ -9,7 +9,202 @@
 {% block title %}Cart || Thrift Fashion {% endblock title %}
 <!-- The content of the page -->
 {% block main %}
+
 <div class="text-white" id="intro-bg">
-   <h1>Page Name</h1>
+  <h1>Cart Page</h1>
 </div>
+
+<!-- first -->
+
+<section>
+  <div class="container table-responsive" id="tables" style="margin-top: 100px;">
+
+<!--customer cart -->
+    <table class="table table-borderless">
+      <thead>
+        <tr class="mb-5">
+          <th class="font-semibold" scope="col" colspan="5">Products</th>
+          <th class="font-semibold ">Price</th>
+          <th class="font-semibold ">Quantity</th>
+          <th class="font-semibold ">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-bottom">          
+          <th class="" scope="row" colspan="5">
+            <div class="vr me-2 "></div>
+            Vintage Dresses
+          </th>
+          <td>$600</td>
+          <td>
+            <div class="d-grid align-items-center">
+              <div class="wrapper">
+                <p class="minus  equa">-</p>
+                <p class="num mx-3 ">1</p>
+                <p class="plus  equa">+</p>
+              </div>
+            </div>
+          </td>
+          <td class="d-flex justify-content-between align-items-center">
+            <span>
+              $6000
+            </span>
+            <span>
+              <a class="text-decoration-none" href="#" role="">
+                <i class="ri-delete-bin-2-fill text-danger text-xl"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <th class="" scope="row" colspan="5">
+            <div class="vr me-2"></div>
+            Dorky Sweaters</th>
+          <td>$300</td>
+          <td>
+            <div class="d-grid align-items-center">
+              <div class="wrapper">
+                <p class="minus  equa">-</p>
+                <p class="num mx-3 ">1</p>
+                <p class="plus  equa">+</p>
+              </div>
+            </div>
+          </td>
+          <td class="d-flex justify-content-between align-items-center">
+            <span>
+              $3000
+            </span>
+            <span>
+              <a class="text-decoration-none" href="#" role="">
+                <i class="ri-delete-bin-2-fill text-danger text-xl"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <th class="" scope="row" colspan="5">
+            <div class="vr me-2"></div>
+            Granny Rompers</th>
+          <td>$800</td>
+          <td>
+            <div class="d-grid align-items-center">
+              <div class="wrapper">
+                <p class="minus  equa">-</p>
+                <p class="num mx-3 ">1</p>
+                <p class="plus  equa">+</p>
+              </div>
+            </div>
+          </td>
+          <td class="d-flex justify-content-between align-items-center">
+            <span>
+              $3600
+            </span>
+            <span>
+              <a class="text-decoration-none" href="#" role="">
+                <i class="ri-delete-bin-2-fill text-danger text-xl"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <th class="" scope="row" colspan="5">
+            <div class="vr me-2"></div>
+            Tommy Hilfiger Button-downs</th>
+          <td>$470</td>
+          <td>
+            <div class="d-grid align-items-center">
+              <div class="wrapper">
+                <p class="minus  equa">-</p>
+                <p class="num mx-3  ">1</p>
+                <p class="plus  equa">+</p>
+              </div>
+            </div>
+          </td>
+          <td class="d-flex justify-content-between align-items-center">
+            <span>
+              $5700
+            </span>
+            <span>
+              <a class="text-decoration-none" href="#" role="">
+                <i class="ri-delete-bin-2-fill text-danger text-xl"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+        <tr class="border-bottom">
+          <th class="" scope="row" colspan="5">
+            <div class="vr me-2"></div>
+            Fit and Flare Dresses</th>
+          <td>$230</td>
+          <td>
+            <div class="d-grid align-items-center">
+              <div class="wrapper">
+                <p class="minus  equa">-</p>
+                <p class="num mx-3  ">1</p>
+                <p class="plus  equa">+</p>
+              </div>
+            </div>
+          </td>
+          <td class="d-flex justify-content-between align-items-center">
+            <span>
+              $4960
+            </span>
+            <span>
+              <a class="text-decoration-none" href="#" role="">
+                <i class="ri-delete-bin-2-fill text-danger text-xl"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+<!-- customer cart ends -->
+    <table class=" col-md-5 ms-auto">
+      <tr class="">
+        <td>Subtotal</td>
+        <td class="text-center">$11030</td>
+      </tr>
+      <tr class="">
+        <td>Shipping </td>
+        <td class="text-center">Flat Rate : $250</td>
+      </tr>
+      <!-- <hr class="container"> -->
+    </table>
+
+<!-- shipping fee -->
+
+    <div class="mx-5 mt-5" >
+      <a href="" class="btn btn-myprimary rounded-pill btn-md">Continue Shopping</a>
+      <a href="" class="btn btn-myprimary rounded-pill btn-md">Proceed to Checkout</a>
+    </div>
+  </div> 
+</section>
+
+
+
+
+
+
+<script>
+  const plus = document.querySelector(".plus"),
+    minus = document.querySelector(".minus"),
+    num = document.querySelector(".num");
+  let a = 1;
+  plus.addEventListener("click", () => {
+    a++;
+    a = (a < 10) ? a : a;
+    num.innerText = a;
+  });
+
+  minus.addEventListener("click", () => {
+    if (a > 1) {
+      a--;
+      a = (a < 10) ? a : a;
+      num.innerText = a;
+    }
+  });
+
+</script>
+
 {% endblock main %}
