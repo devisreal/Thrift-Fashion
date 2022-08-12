@@ -65,7 +65,7 @@
          <div class="col-md-3 col-12" style="height: fit-content;">
             <div class="col row_2_img_1 all_img_cart" onmouseover="visiblecart()" onmouseleave="disappearance()">
                <div class="cart">
-                   <a href="#" class="text-decoration-none anchor un">rer</i></a>
+                   <a href="#" class="text-decoration-none anchor un"><i class="ri-shopping-cart-line carty fs-2 pe-3"></i></a>
                    <a href="" class="text-decoration-none anchor"><i class="ri-heart-line fs-2 carty"></i></a>
                </div>
             </div>
@@ -562,11 +562,11 @@ var containerEl = document.querySelector('.filter-container');
      });
 
 var cart = document.getElementsByClassName('cart')
-var anchor = document.getElementsByClassName('anchor')
+var carty = document.getElementsByClassName('carty')
 function visiblecart(){
     cart[0].style.backgroundColor = 'white'
-    anchor[0].style.color = 'black'
-    anchor[1].style.color = 'black'
+    carty[0].style.color = 'black'
+    carty[1].style.color = 'black'
 }
 function disappearance(){
     cart[0].style.backgroundColor = 'transparent'
