@@ -535,32 +535,6 @@
 </aside>
 <script src="../../../static/js/mixitup.min.js"></script>
 <script>
-var containerEl = document.querySelector('.filter-container');
-  
-  var mixer = mixitup(containerEl, {
-     animation: {
-        effects: 'fade scale stagger(50ms)' // Set a 'stagger' effect for the loading animation
-     },
-     load: {
-        filter: 'none' // Ensure all targets start from hidden (i.e. display: none;)
-     }
-  });
-
-  containerEl.classList.add('mixitup-ready');
-
-  // Show all targets in the container
-
-  mixer.show()
-     .then(function () {
-        // Remove the stagger effect for any subsequent operations
-
-        mixer.configure({
-           animation: {
-              effects: 'fade scale'
-           }
-        });
-     });
-
 var cart = document.getElementsByClassName('cart')
 var anchor = document.getElementsByClassName('anchor')
 function visiblecart(){
