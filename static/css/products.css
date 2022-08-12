@@ -300,10 +300,8 @@ hr{
 
 /* product details stylesheet */
 .faint_color{
-    background-color: #051b34;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    color: black;
+    padding-top: 80px;
     margin-bottom: 100px;
 }
 .puffy{
@@ -321,7 +319,7 @@ hr{
     margin-top: 70px;
 }
 .last_img{
-    background: url(./img/vintage.jpg) no-repeat center center/contain;
+    background: url(../img/product_img/vintage.jpg) no-repeat center center/contain;
     margin-bottom: 100px;
 }
 .authentication{
