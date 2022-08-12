@@ -297,3 +297,33 @@ hr{
 .footer_heading:hover{
     color:  rgba(218, 165, 32, 0.532);
 }
+
+/* product details stylesheet */
+.faint_color{
+    background-color: #051b34;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 100px;
+}
+.puffy{
+    color: black;
+    text-justify: auto;
+}
+.descript_text{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.missy{
+    margin-bottom: 100px;
+}
+.paragraph_2{
+    margin-top: 70px;
+}
+.last_img{
+    background: url(./img/vintage.jpg) no-repeat center center/contain;
+    margin-bottom: 100px;
+}
+.authentication{
+    margin-bottom: 120px;
+}
