@@ -21,25 +21,27 @@
 <!-- The content of the page -->
 {% block main %}
 <div class="hero" id="hero">
-  <div class="container">
-    <div class="row  hero-style flex-row-reverse">
-      <div class="col-sm-12 col-md-6 her-carousel d-none d-md-block">
-        <div class="pic-ctn mx-auto">
-          <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 hero-text">
-        <h1 class="" >Old Clothes<br>New Style</h1>
-        <p>The home of high quality and elegant thrift clothes</p>
-      </div>
-    </div>
-  </div>
-</div>
 
+    <div class="container">
+        <div class="row  hero-style  flex-row-reverse">
+            <div class="col-sm-12 col-md-6 her-carousel d-none d-md-block">
+                <div class="pic-ctn mx-auto">
+                    <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
+                    <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
+                    <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
+                    <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
+                    <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
+                  </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-6 hero-text text-sm-center">
+                <h1>Old Clothes<br>New Style</h1>
+                <p>The home of high quality and elegant thrift clothes</p> 
+            </div>
+
+</div>
+</div>
+</div>
 <div class="feature">
   <div class="container">
     <div class="row mt-5">
@@ -106,19 +108,189 @@
         <div class="owl-stage-outer">
           <div class="owl-stage">
             <div class="owl-item">
-              <h4>1</h4>
+              <div class="product-card mix men">
+                <div class="product-card-image">
+                   <img
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="Avatar" class="image rounded-xl">
+                   <div class="overlay">
+                      {% if request.user.is_authenticated %}
+                      <div class="icons ">
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% else %}
+                      <div class="icons ">
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% endif %}
+                   </div>
+                </div>
+                <div class="p-3 text-center">
+                   <h6 class="font-medium">Product Name</h6>
+                   <span class="d-flex justify-content-center">
+                      <p class="mx-2">$90</p>
+                      <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+                   </span>
+                </div>
+             </div>
             </div>
             <div class="owl-item">
-              <h4>2</h4>
+              <div class="product-card mix men">
+                <div class="product-card-image">
+                   <img
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="Avatar" class="image rounded-xl">
+                   <div class="overlay">
+                      {% if request.user.is_authenticated %}
+                      <div class="icons ">
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% else %}
+                      <div class="icons ">
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% endif %}
+                   </div>
+                </div>
+                <div class="p-3 text-center">
+                   <h6 class="font-medium">Product Name</h6>
+                   <span class="d-flex justify-content-center">
+                      <p class="mx-2">$90</p>
+                      <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+                   </span>
+                </div>
+             </div>
             </div>
             <div class="owl-item">
-              <h4>3</h4>
+              <div class="product-card mix men">
+                <div class="product-card-image">
+                   <img
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="Avatar" class="image rounded-xl">
+                   <div class="overlay">
+                      {% if request.user.is_authenticated %}
+                      <div class="icons ">
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% else %}
+                      <div class="icons ">
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% endif %}
+                   </div>
+                </div>
+                <div class="p-3 text-center">
+                   <h6 class="font-medium">Product Name</h6>
+                   <span class="d-flex justify-content-center">
+                      <p class="mx-2">$90</p>
+                      <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+                   </span>
+                </div>
+             </div>
             </div>
             <div class="owl-item">
-              <h4>4</h4>
+              <div class="product-card mix men">
+                <div class="product-card-image">
+                   <img
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="Avatar" class="image rounded-xl">
+                   <div class="overlay">
+                      {% if request.user.is_authenticated %}
+                      <div class="icons ">
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% else %}
+                      <div class="icons ">
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% endif %}
+                   </div>
+                </div>
+                <div class="p-3 text-center">
+                   <h6 class="font-medium">Product Name</h6>
+                   <span class="d-flex justify-content-center">
+                      <p class="mx-2">$90</p>
+                      <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+                   </span>
+                </div>
+             </div>
             </div>
             <div class="owl-item">
-              <h4>5</h4>
+              <div class="product-card mix men">
+                <div class="product-card-image">
+                   <img
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                      alt="Avatar" class="image rounded-xl">
+                   <div class="overlay">
+                      {% if request.user.is_authenticated %}
+                      <div class="icons ">
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% else %}
+                      <div class="icons ">
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                         <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                            <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                         </a>
+                      </div>
+                      {% endif %}
+                   </div>
+                </div>
+                <div class="p-3 text-center">
+                   <h6 class="font-medium">Product Name</h6>
+                   <span class="d-flex justify-content-center">
+                      <p class="mx-2">$90</p>
+                      <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+                   </span>
+                </div>
+             </div>
             </div>
           </div>
         </div>
@@ -138,9 +310,9 @@
     <div class="container">
       <h1 class="text-center">Categories</h1>
       <div class="row mt-5 justify-content-between">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <div class="card"
-            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i1.wp.com/handluggageonly.co.uk/wp-content/uploads/2015/05/IMG_2813-s.jpg?w=1600&ssl=1');">
+            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/static/img/thrift-img/tthrift_img_19.jpg');">
             <div class="card-category">
               <h3>Men's Clothing</h3>
             </div>
@@ -154,9 +326,9 @@
           </div>
         </div>
 
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-4 col-sm-12">
           <div class="card"
-            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i0.wp.com/handluggageonly.co.uk/wp-content/uploads/2016/04/IMG_5589.jpg?w=1600&ssl=1');">
+            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/static/img/thrift-img/thrift_img_976.jpg');">
             <div class="card-category">
               <h3>Women's Clothing</h3>
             </div>
@@ -164,6 +336,23 @@
               <button class="cssbuttons-io" href="#">
                 <span> See More</span>
               </button>
+            </div>
+            <a class="card-link" href="#"></a>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+          <div class="card"
+            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/static/img/thrift-img/tthrift_img_19.jpg');">
+            <div class="card-category">
+              <h3>Kid's Clothing</h3>
+            </div>
+            <div class="card-description">
+              <a href="#">
+                <button class="cssbuttons-io">
+                  <span> See More</span>
+                </button>
+              </a>
             </div>
             <a class="card-link" href="#"></a>
           </div>

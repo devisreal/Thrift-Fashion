@@ -273,12 +273,20 @@ textarea, td {
 .form-control:active {
   border: 1px solid var(--blue-shade-secondary) !important;
 }
+
 .form-label text-black,
 label {
   font-family: "Jost", sans-serif !important;
   font-weight: 500;
   font-size: 14px !important;
 }
+
+.form-check-input:focus,
+.form-check-input:active{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* clears the ‘X’ from Internet Explorer */
 input[type="search"]::-ms-clear {
   display: none !important;
