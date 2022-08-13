@@ -3,18 +3,19 @@
     height: 254px;
     border-radius: 30px;
     background: var(--gray-200);
-    box-shadow: 15px 15px 30px #bebebe,
-                -15px -15px 30px #ffffff;
+    /* box-shadow: 15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff; */
 }
 .card-body a{
     text-decoration: none;
+    color: var(--gray-200);
 }
 .card-body a i{
     font-size: 25px;
     
 }
-.card-body a i .ri-facebook-circle-fill:hover{
-    color: var(--blue-shade-secondary);
+.card-body a :hover{
+    color: black;
 }
 .card-body a i .ri-twitter-fill:hover{
     color: pink;
