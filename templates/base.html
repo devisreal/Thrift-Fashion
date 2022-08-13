@@ -35,13 +35,11 @@
    <!-- <div class="bg-opacity-50"></div> -->
    {% include 'partials/navbar.html' %}
    {% block main %}{% endblock main %}   
+   {% include 'partials/footer.html' %}
    <!-- Javascript Vendors -->
 
    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-
-   
-
-   
-
+   <script src="{% static 'js/mixitup.min.js' %}"></script>   
+   {% block scripts %}{% endblock scripts %}
 </body>
 </html>

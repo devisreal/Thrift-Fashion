@@ -128,9 +128,9 @@ input[type="number"] {
 .bg-mysecondary {
   background-color: var(--blue-shade-primary) !important;
 }
-.bg-mysecondary-outline {
-  border: 2px solid var(--primary-color) !important;
-  color: var(--primary-color) !important;
+.btn-mysecondary-outline {
+  border: 2px solid var(--blue-shade-primary) !important;
+  color: #000 !important;
 }
 .text-mysecondary {
   color: var(--secondary-color) !important;
@@ -305,8 +305,8 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 95% !important;
   }
 }
-.navbar{
-  backdrop-filter: blur(16px) saturate(180%) !important; 
+.navbar, .nav-dropdown{
+  backdrop-filter: blur(16px) saturate(180%) !important;   
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
 .nav-link {
@@ -322,10 +322,14 @@ input[type="search"]::-webkit-search-results-decoration {
 .nav-link:hover {
   color: var(--blue-shade-secondary) !important;
 }
+.nav-avatar:hover{
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
 
 /* Intro Bg */
 #intro-bg {
-  height: 80vh;
+  height: 75vh;
   display: grid;
   place-content: center;
   background-position: center;
