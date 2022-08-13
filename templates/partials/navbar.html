@@ -20,7 +20,17 @@
             <i class="ri-menu-3-fill text-2xl "></i>
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <form action="" class="mx-auto w-50 d-none d-md-inline">
+               <div class="input-group border rounded-2">
+                  <input type="text" class="form-control text-sm border-0 font-normal" type="text" placeholder="Search Products">
+                  <span class="input-group-text bg-white border-0">
+                     <a href="{% url 'search_products' %}" class="text-decoration-none border-0 bg-white" style="outline: none;">
+                        <i class="ri-search-eye-line text-lg text-myprimary"></i>
+                     </a>
+                  </span>
+               </div>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
                <li class="nav-item">
                   <a class="nav-link {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
                </li>
@@ -36,12 +46,12 @@
             </ul>
             <div class="d-flex ms-3">
                <li class="nav-item dropdown m-0 list-unstyled">
-                  <button class="dropdown-toggle btn text-white" href="" id="navbarDarkDropdownMenuLink" role="button"
+                  <button class=" btn text-white " href="" id="navbarDarkDropdownMenuLink" role="button"
                      data-bs-toggle="dropdown" aria-expanded="false">
-                     <img src="{{request.user.profile_image.url}}" alt="User Avatar" class="img-fluid rounded-full"
+                     <img src="{{request.user.profile_image.url}}" alt="User Avatar" class="img-fluid rounded-full nav-avatar"
                         style="width: 40px;height: 40px;object-fit: cover;">
                   </button>
-                  <ul class="dropdown-menu dropdown-menu-light  dropdown-menu-end dropdown-menu-lg-end"
+                  <ul class="dropdown-menu nav-dropdown  dropdown-menu-end dropdown-menu-lg-end mt-2"
                      aria-labelledby="navbarDarkDropdownMenuLink">                     
                      <li>
                         <a href="" class="dropdown-item font-medium d-flex align-items-center m-0 p-0 px-3">
@@ -54,7 +64,7 @@
                      </li>
                      <li class="p-0">
                         <a href="{% url 'accounts:logout' %}"
-                           class="dropdown-item px-3 py-0 text-danger font-medium d-flex align-items-center">
+                           class="dropdown-item px-3 py-0  font-medium d-flex align-items-center" style="color: red;">
                            <i class="ri-login-circle-fill text-xl"></i>
                            &nbsp;
                            Logout
@@ -81,18 +91,28 @@
          <i class="ri-menu-3-fill text-2xl "></i>
       </button>
       <div class="collapse navbar-collapse pb-2 pb-md-0" id="navbarSupportedContent">
-         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         <form action="" class="mx-auto w-50 d-none d-md-inline">            
+               <div class="input-group border rounded-2">
+                  <input type="text" class="form-control text-sm border-0 font-normal" type="text" placeholder="Search Products">
+                  <span class="input-group-text bg-white border-0">
+                     <button href="" class="text-decoration-none border-0 bg-white" style="outline: none;">
+                        <i class="ri-search-eye-line text-lg text-myprimary"></i>
+                     </button>
+                  </span>
+               </div>
+         </form>
+         <ul class="navbar-nav  mb-2 mb-lg-0">
             <li class="nav-item">
-               <a class="nav-link {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
+               <a class="nav-link text-md {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link {% if request.path == about %} active {% endif %}" href="{% url 'about' %}">About</a>
+               <a class="nav-link text-md {% if request.path == about %} active {% endif %}" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link {% if request.path == products %} active {% endif %}" href="{% url 'products' %}">Products</a>
+               <a class="nav-link text-md {% if request.path == products %} active {% endif %}" href="{% url 'products' %}">Products</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link {% if request.path == contact %} active {% endif %} " href="{% url 'contact' %}">Contact</a>
+               <a class="nav-link text-md {% if request.path == contact %} active {% endif %} " href="{% url 'contact' %}">Contact</a>
             </li>
          </ul>
          <div class="d-flex ms-md-3">
@@ -102,7 +122,6 @@
             <a class="nav-link icon {% if request.path == login or request.path == register %} active {% endif %} " href="{% url 'accounts:login' %}">
                <i class="ri-user-3-fill text-xl ms-1"></i>
             </a>
-
          </div>
       </div>
    </div>
