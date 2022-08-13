@@ -20,7 +20,17 @@
             <i class="ri-menu-3-fill text-2xl "></i>
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <form action="" class="mx-auto w-50 d-none d-md-inline">
+               <div class="input-group border rounded-2">
+                  <input type="text" class="form-control text-sm border-0 font-normal" type="text" placeholder="Search Products">
+                  <span class="input-group-text bg-white border-0">
+                     <a href="{% url 'search_products' %}" class="text-decoration-none border-0 bg-white" style="outline: none;">
+                        <i class="ri-search-eye-line text-lg text-myprimary"></i>
+                     </a>
+                  </span>
+               </div>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
                <li class="nav-item">
                   <a class="nav-link {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
                </li>
@@ -81,7 +91,17 @@
          <i class="ri-menu-3-fill text-2xl "></i>
       </button>
       <div class="collapse navbar-collapse pb-2 pb-md-0" id="navbarSupportedContent">
-         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         <form action="" class="mx-auto w-50 d-none d-md-inline">            
+               <div class="input-group border rounded-2">
+                  <input type="text" class="form-control text-sm border-0 font-normal" type="text" placeholder="Search Products">
+                  <span class="input-group-text bg-white border-0">
+                     <button href="" class="text-decoration-none border-0 bg-white" style="outline: none;">
+                        <i class="ri-search-eye-line text-lg text-myprimary"></i>
+                     </button>
+                  </span>
+               </div>
+         </form>
+         <ul class="navbar-nav  mb-2 mb-lg-0">
             <li class="nav-item">
                <a class="nav-link text-md {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
             </li>
@@ -102,7 +122,6 @@
             <a class="nav-link icon {% if request.path == login or request.path == register %} active {% endif %} " href="{% url 'accounts:login' %}">
                <i class="ri-user-3-fill text-xl ms-1"></i>
             </a>
-
          </div>
       </div>
    </div>

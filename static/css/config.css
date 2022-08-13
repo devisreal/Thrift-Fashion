@@ -306,7 +306,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 .navbar, .nav-dropdown{
-  backdrop-filter: blur(16px) saturate(180%) !important; 
+  backdrop-filter: blur(16px) saturate(180%) !important;   
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
 .nav-link {
@@ -329,7 +329,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* Intro Bg */
 #intro-bg {
-  height: 80vh;
+  height: 75vh;
   display: grid;
   place-content: center;
   background-position: center;

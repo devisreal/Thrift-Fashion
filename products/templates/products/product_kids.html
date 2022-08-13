@@ -1,0 +1,72 @@
+<!-- The html page this page is extending -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- The css styles used in the page -->
+{% block stylesheets %}
+<style>
+   .category-card {
+      height: 300px;
+      display: grid;
+      place-content: end;
+   }
+
+   .category-card.male {
+      background-image: linear-gradient(62deg,
+            rgba(0, 0, 0, 0.7) 20%,
+            rgba(0, 0, 0, 0.7) 80%),
+         url(../../../static/img/product_img/vintage.jpg);
+   }
+
+   .category-card.female {
+      background-image: linear-gradient(62deg,
+            rgba(0, 0, 0, 0.7) 20%,
+            rgba(0, 0, 0, 0.7) 80%),
+         url(../../../static/img/product_img/kiddiesthrift_5.jpg);
+   }
+
+   .category-card.kids {
+      background-image: linear-gradient(62deg,
+            rgba(0, 0, 0, 0.7) 20%,
+            rgba(0, 0, 0, 0.7) 80%),
+         url(../../../static/img/product_img/thrift_img_04335.jpg);
+   }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+{% endblock stylesheets %}
+<!-- The title of the page -->
+{% block title %}Products || Thrift Fashion {% endblock title %}
+<!-- The content of the page -->
+{% block main %}
+
+
+<div class="text-white" id="intro-bg">
+   <h1>Kids Products</h1>
+</div>
+
+
+<div class="container p-0" style="margin-top: 120px;">
+   <h2 class="text-center mb-5">Categories</h2>
+   <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card male">
+            <a href="" class="btn btn-success font-medium " type="button">Male</a>
+         </div>
+      </div>
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card female">
+            <a href="" class="btn btn-warning font-medium" type="button">Female</a>
+         </div>
+      </div>
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card kids">
+            <a href="" class="btn btn-light font-medium" type="button">Kids</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock main %}
