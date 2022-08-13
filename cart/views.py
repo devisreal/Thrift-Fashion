@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-def cart(request):
-   return render(request, 'cart/cart.html')
+
+@login_required
+def cart(request):   
+
+   context = {
+      
+   }
+   return render(request, 'cart/cart.html', context)

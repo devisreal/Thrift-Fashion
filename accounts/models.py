@@ -1,14 +1,16 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import AbstractUser
 from django.template.defaultfilters import slugify
 
-# Create your models here.
+
 class User(AbstractUser):
    # * The user's profile picture
-   profile_image = models.ImageField(
-      upload_to='profile_images', 
-      default='default_profile.png',
+   profile_image = CloudinaryField(   
+      'profile_image',
+      blank=True,
+      null=True,
       validators=[
          FileExtensionValidator(
             allowed_extensions=[

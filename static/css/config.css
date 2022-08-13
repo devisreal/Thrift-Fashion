@@ -133,7 +133,7 @@ input[type="number"] {
   color: #000 !important;
 }
 .text-mysecondary {
-  color: var(--secondary-color) !important;
+  color: var(--blue-shade-primary) !important;
 }
 .text-gray-500 {
   color: var(--gray-500) !important;

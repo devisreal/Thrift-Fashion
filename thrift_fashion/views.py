@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import ContactForm
+from products.models import Product
 
 # Create your views here.
 def home(request):
-    return render(request, 'thrift_fashion/home.html')
+    latest_products = Product.objects.all().order_by('-id')[:4]
+
+    context = {
+        'latest_products': latest_products,
+    }
+
+    return render(request, 'thrift_fashion/home.html', context)
 
 def about(request):
     return render(request, 'thrift_fashion/about.html')

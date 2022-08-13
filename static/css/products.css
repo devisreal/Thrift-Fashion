@@ -1,327 +1,98 @@
-.row_1_img{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_037.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: 0.7s;
-    cursor: pointer;
-}
-.row_1_img:hover{
-    transform: scale(1.04);
-}
-.row_2_img{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_18a.png) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: 0.7s;
-    cursor: pointer;
-}
-.row_2_img:hover{
-    transform: scale(1.04);
-}
-.row_3_img{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_0843.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: 0.7s;
-    cursor: pointer;
-}
-.row_3_img:hover{
-    transform: scale(1.04);
-}
-.product_row_1{
-    margin-top: 100px;
-}
-.flexproperty{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-.hovereffect{
-    color: black;
-    padding-bottom: 10px;
-}
-.hovereffect:hover{
-    color: rgba(218, 165, 32, 0.532);
-    border-bottom: 2px solid rgba(218, 165, 32, 0.532);
-}
-.trending{
-    color: black;
-}
-.product_row_2{
-    margin-top: 100px;
-    margin-bottom: 30px;
-}
-hr{
-    margin-bottom: 100px;
-}
-.cart{
-    /* background-color: white; */
-    height: fit-content;
-    width: fit-content;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-.carty:hover{
-    color: #0099ff;
-}
-.anchor{
-    color: transparent;
-}
-.all_img_cart{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-.row_2_img_1{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_055.jpg) no-repeat center center/cover;
-}
-.row_2_img_2{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_0323.jpg) no-repeat center center/cover;
-}
-.row_2_img_3{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_056.jpg) no-repeat center center/cover;
-}
-.row_2_img_4{
-    height: 300px;
-    background: url(../img/product_img/thrift_img_0378.jpg) no-repeat center center/cover;
-}
-.line_over{
-    text-decoration: line-through;
-    color: rgba(218, 165, 32, 0.532);
-}    
-.testimony{
-    background-color: black;
-    color: white;
-}
-.row3_imgdisplay{
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-.men_1, .men_2, .men_3, .men_4, .men_5, .men_6, .men_7, .men_8, .men_9{
-    height: 300px;
-}
-.men_1{
-    background: url(../img/product_img/thrift_img_200.png) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_2{
-    background: url(../img/product_img/thrift_img_035.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_3{
-    background: url(../img/product_img/thrift_img_04335.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_4{
-    background: url(../img/product_img/thrift_img_787.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_5{
-    background: url(../img/product_img/thrift_img_03785.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_6{
-    background: url(../img/product_img/thrift_img_0643.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_7{
-    background: url(../img/product_img/thrift_img_0095.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_8{
-    background: url(../img/product_img/thrift_img_095.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.men_9{
-    background: url(../img/product_img/thrift_img_032.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.highermarg{
-    margin-bottom: 100px;
-}
-.female_1, .female_2, .female_3, .female_4, .female_5, .female_6, .female_7, .female_8, .female_9{
-    height: 300px;
-}
-.female_1{
-    background: url(../img/product_img/thrift_img_976.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_2{
-    background: url(../img/product_img/thrift_img_23.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_3{
-    background: url(../img/product_img/thrift_img_24.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_4{
-    background: url(../img/product_img/thrift_img_54.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_5{
-    background: url(../img/product_img/thrift_img_59.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_6{
-    background: url(../img/product_img/thrift_img_67.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_7{
-    background: url(../img/product_img/thrift_img_0543.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_8{
-    background: url(../img/product_img/thrift_img_90.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.female_9{
-    background: url(../img/product_img/thrift_img_789.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_1, .kiddies_2, .kiddies_3, .kiddies_4, .kiddies_5, .kiddies_6{
-    height: 300px;
-}
-.kiddies_1{
-    background: url(../img/product_img/kiddiesthrift_1.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_2{
-    background: url(../img/product_img/kiddiesthrift_2.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_3{
-    background: url(../img/product_img/kiddiesthrift_3.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_4{
-    background: url(../img/product_img/kiddiesthrift_5.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_5{
-    background: url(./img/kiddiesthrift_4.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.kiddies_6{
-    background: url(../img/product_img/kiddiesthrift_6.jpg) no-repeat center center/contain;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.myhr{
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-.lower_card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.perks{
-    margin-bottom: 100px;
-}
-.margin_end{
-    border-right: 1px solid grey;
-}
-.shadow{
-    box-shadow: 0 4px -6px 0 rgba(128, 128, 128, 0.098);
-}
-.pad{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.size_6_margin{
-    margin-top: 100px;
-    margin-bottom: 150px;
-}
-.size_6_img{
-    height: 400px;
-    background: url(../img/product_img/thrift_img_065.jpg) no-repeat center center/contain;
-}
-.flexneeded{
-    display: flex;
-    align-items: center;
-}
-.footer{
-    padding-top: 60px;
-    padding-bottom: 60px;
-    background-color: black;
-}
-.linkk{
-    margin-top: 10px;
-    color: white;
-}
-.thrifty{
-    color:rgba(218, 165, 32, 0.532);
-}
-.thrifty:hover{
-    color: rgba(218, 165, 32, 0.532);;
-}
-.linkk:hover{
-    color:  rgba(218, 165, 32, 0.532);
-    margin-left: 5px;
-}
-.footer_heading:hover{
-    color:  rgba(218, 165, 32, 0.532);
+.category-card {
+  height: 300px;
+  display: grid;
+  place-content: end;
 }
 
-/* product details stylesheet */
-.faint_color{
-    color: black;
-    padding-top: 80px;
-    margin-bottom: 100px;
+.category-card.male {
+  background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+    ),
+    url(../../../static/img/product_img/vintage.jpg);
 }
-.puffy{
-    color: black;
-    text-justify: auto;
+
+.category-card.female {
+  background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+    ),
+    url(../../../static/img/product_img/kiddiesthrift_5.jpg);
 }
-.descript_text{
-    padding-top: 100px;
-    padding-bottom: 100px;
+
+.category-card.kids {
+  background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+    ),
+    url(../../../static/img/product_img/thrift_img_04335.jpg);
 }
-.missy{
-    margin-bottom: 100px;
+
+.product-card-image {
+  position: relative;
 }
-.paragraph_2{
-    margin-top: 70px;
+
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
 }
-.last_img{
-    background: url(../img/product_img/vintage.jpg) no-repeat center center/contain;
-    margin-bottom: 100px;
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
-.authentication{
-    margin-bottom: 120px;
+
+.product-card-image:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.icons {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.filter-link {
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mixitup-control-active {
+  color: #0099ff;
+}
+
+.mixitup-control-active[data-filter]:after {
+  background: transparent;
+}
+
+.product-name{
+  color: black;
+}
+
+.product-name:hover{
+  color: #0099ff;
 }

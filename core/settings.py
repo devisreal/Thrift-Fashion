@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import environ
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
@@ -144,6 +147,12 @@ STATIC_ROOT = (BASE_DIR/'assets')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = (BASE_DIR / 'media')
+
+cloudinary.config(
+    cloud_name = 'freethinkers',
+    api_key = '586783729867692',
+    api_secret = 'jHrimLjZMDUoFkX9LJ3PRYi3KT4'
+)
 
 # Django Messages
 MESSAGE_TAGS = {

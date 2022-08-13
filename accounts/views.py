@@ -88,6 +88,6 @@ def logout(request):
    # Logout user
    user_logout(request)
     # Return success message
-   messages.info(request, 'See you soon 🙂')
+   messages.success(request, 'See you soon 🙂')
     # Redirect to home page
    return redirect(request.META.get('HTTP_REFERER'))
