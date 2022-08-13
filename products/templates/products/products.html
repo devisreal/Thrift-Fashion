@@ -1,0 +1,540 @@
+<!-- The html page this page is extending -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- The css styles used in the page -->
+{% block stylesheets %}
+<style>
+.category-card{
+   height: 300px;
+   display: grid;
+   place-content: end;
+}
+.category-card.male{
+   background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+   ),
+   url(../../../static/img/product_img/vintage.jpg);
+}
+.category-card.female{
+   background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+   ),
+   url(../../../static/img/product_img/kiddiesthrift_5.jpg);
+}
+.category-card.kids{
+   background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.7) 80%
+   ),
+   url(../../../static/img/product_img/thrift_img_04335.jpg);
+}
+
+.product-card {
+  position: relative;    
+}
+
+.image {
+  display: block;
+  width: 100%;  
+  object-fit: cover;
+  height: 350px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255,0.3);
+  overflow: hidden;
+   width: 100%;
+   height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.product-card:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.icons {  
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.filter-link{
+   color: #000 ;
+   font-weight: 500;   
+   cursor: pointer;
+}
+</style>
+{% endblock stylesheets %}
+<!-- The title of the page -->
+{% block title %}Products || Thrift Fashion {% endblock title %}
+<!-- The content of the page -->
+{% block main %}
+
+
+<div class="text-white" id="intro-bg">
+   <h1>Our Products</h1>
+</div>
+
+
+<div class="container p-0" style="margin-top: 120px;">
+   <h2 class="text-center mb-5">Categories</h2>
+   <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card male">                     
+            <a href="{% url 'product_male' %}" class="btn btn-success font-medium " type="button">Male</a>
+         </div>
+      </div>
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card female">                     
+            <a href="{% url 'product_female' %}" class="btn btn-warning font-medium" type="button">Female</a>
+         </div>
+      </div>
+      <div class="col">
+         <div class=" p-3 text-white bg-dark rounded-3 category-card kids">                     
+            <a href="{% url 'product_kids' %}" class="btn btn-light font-medium" type="button">Kids</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+<br><br><br><br>
+
+
+<div class="hstack gap-3 container p-0">
+   <div class="font-jost col-3 d-flex justify-content-around">
+      <a class="text-decoration-none filter-link" data-filter="all">All</a>
+      <a class="text-decoration-none filter-link" data-filter=".male">Men</a>
+      <a class="text-decoration-none filter-link" data-filter=".female">Women</a>
+      <a class="text-decoration-none filter-link" data-filter=".kids">Kids</a>
+   </div>
+   <div class=" border ms-auto">
+      <div class="btn-group">
+         <button class="btn btn-sm text-md" type="button">
+            Sort by
+         </button>
+         <button type="button" class="btn btn-sm btn-secondary bg-white dropdown-toggle-split border-0"
+            data-bs-toggle="dropdown">
+            <i class="ri-arrow-down-s-line text-black border-0"></i>
+         </button>
+         <ul class="dropdown-menu text-md " style="backdrop-filter: blur(6px) saturate(180%) !important; background-color: rgba(255, 255, 255) !important;">
+            <li><a class="dropdown-item" href="#">Price</a></li>
+            <li><a class="dropdown-item" href="#">Date</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+               <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+         </ul>
+      </div>
+   </div>   
+</div>
+
+<div class="container p-0 mt-5">
+   <div class="row row-cols-2 row-cols-lg-4 g-4 mix-it">
+      <div class="col mix male">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix female">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix kids">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix kids">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix male">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix female">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix male">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix female">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix kids">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      <div class="col mix male">
+         <div class="product-card">
+            <img
+               src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+               alt="Avatar" class="image rounded-xl">
+            <div class="overlay">
+               {% if request.user.is_authenticated %}
+                  <div class="icons ">
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% else %}
+                  <div class="icons ">
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                     <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                        <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                     </a>
+                  </div>
+               {% endif %}
+            </div>
+         </div>
+         <div class="p-3 text-center">
+            <h6 class="font-medium">Product Name</h6>
+            <span class="d-flex justify-content-center">
+               <p class="mx-2">$90</p>
+               <p class="mx-2 text-decoration-line-through text-gray-500">$90</p>
+            </span>
+         </div>
+      </div>
+      
+   </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock main %}
+{% block scripts %}
+<script>
+   var containerEl = document.querySelector('.mix-it');
+
+      var mixer = mixitup(containerEl, {
+         animation: {
+            effects: 'fade scale stagger(50ms)' // Set a 'stagger' effect for the loading animation
+         },
+         load: {
+            filter: 'none' // Ensure all targets start from hidden (i.e. display: none;)
+         }
+      });
+
+      containerEl.classList.add('mixitup-ready');
+
+      // Show all targets in the container
+
+      mixer.show()
+         .then(function () {
+            // Remove the stagger effect for any subsequent operations
+
+            mixer.configure({
+               animation: {
+                  effects: 'fade scale'
+               }
+            });
+         });
+</script>
+{% endblock scripts %}

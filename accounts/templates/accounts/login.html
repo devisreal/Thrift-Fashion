@@ -20,11 +20,11 @@
       <form action="{% url 'accounts:login' %}" class="mt-5" method="POST">
          {% csrf_token %}
          <div class="form-floating mb-3">
-            <input type="text" class="form-control border rounded-0 text-sm" id="username" name="username" placeholder="" required>
+            <input type="text" class="form-control border rounded-0 text-md" id="username" name="username" placeholder="" required>
             <label for="username" class="font-semibold">Username</label>
          </div>
          <div class="form-floating">
-            <input type="password" class="form-control border rounded-0 text-sm" id="password" name="password" placeholder="" required>
+            <input type="password" class="form-control border rounded-0 text-md" id="password" name="password" placeholder="" required>
             <label for="password" class="font-semibold">Password</label>
          </div>
 
