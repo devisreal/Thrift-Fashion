@@ -1,22 +1,38 @@
+.know{
+    margin-top: 100px;
+}
 .card {
     width: 300px;
-    height: 254px;
-    border-radius: 30px;
-    background: var(--gray-200);
+    height: 400px;
+    border-radius: 5px;
+    background: var(white);
     /* box-shadow: 15px 15px 30px #bebebe,
                 -15px -15px 30px #ffffff; */
 }
+.card-body img{
+    border-radius: 20px;
+}
 .card-body a{
     text-decoration: none;
-    color: var(--gray-200);
+    color: var(--black-shade);
+}
+.card-body .card-con{
+    margin-top: 60px;
+    
 }
 .card-body a i{
     font-size: 25px;
     
 }
 .card-body a :hover{
-    color: black;
+    color: var(--blue-shade-secondary);
 }
 .card-body a i .ri-twitter-fill:hover{
     color: pink;
+}
+
+@media screen and (max-width:768px){
+    .card1{
+        margin-left: 40px;
+    }
 }
