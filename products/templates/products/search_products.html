@@ -7,7 +7,7 @@
 
 </style>
 
-<!-- <link rel="stylesheet" href="{% static 'css/contact.css' %}" /> -->
+<link rel="stylesheet" href="{% static 'css/products.css' %}" />
 {% endblock stylesheets %}
 <!-- The title of the page -->
 {% block title %}Search Products || Thrift Fashion {% endblock title %}
@@ -19,56 +19,159 @@
    <h1>Search Products</h1>
 </div>
 
-
+<div class="mt-3">
+   {% include 'partials/messages.html' %}
+</div>
 
 <div class="mt-5" style="margin-top: 120px;">
    <div class="container px-4 text-start mb-5">
-      <div class="row gx-4">
-         <div class="col-4">
-            <div class="p-3 border bg-light">
-               <h5>PRODUCT CATEGORIES</h5>
+      <div class="row gx-5">
+         <div class="col-md-3 sticky ">
+
+            <div class="p-3 border-top bg-light border-2 border-myprimary">
+               <h5 class="text-capitalize">Product Categories</h5>
                <ul class="list-group list-group-flush bg-light">
-                  <li class="bg-light list-group-item d-flex align-items-center">
+                  <a data-filter="all"
+                     class="bg-light list-group-item d-flex align-items-center font-work-sans filter-link">
                      <i class="ri-record-circle-fill text-xs me-2"></i>
                      <span>
-                        Male
+                        All
                      </span>
-                  </li>
-                  <li class="bg-light list-group-item d-flex align-items-center">
+                  </a>
+                  <a data-filter=".men"
+                     class="bg-light list-group-item d-flex align-items-center font-work-sans filter-link">
                      <i class="ri-record-circle-fill text-xs me-2"></i>
                      <span>
-                        Female
+                        Men
                      </span>
-                  </li>
-                  <li class="bg-light list-group-item d-flex align-items-center">
+                  </a>
+                  <a data-filter=".women"
+                     class="bg-light list-group-item d-flex align-items-center font-work-sans filter-link">
+                     <i class="ri-record-circle-fill text-xs me-2"></i>
+                     <span>
+                        Women
+                     </span>
+                  </a>
+                  <a data-filter=".kids"
+                     class="bg-light list-group-item d-flex align-items-center font-work-sans filter-link">
                      <i class="ri-record-circle-fill text-xs me-2"></i>
                      <span>
                         Kids
                      </span>
-                  </li>
+                  </a>
+                  <a data-filter=".unisex"
+                     class="bg-light list-group-item d-flex align-items-center font-work-sans filter-link">
+                     <i class="ri-record-circle-fill text-xs me-2"></i>
+                     <span>
+                        Unisex
+                     </span>
+                  </a>
                </ul>
             </div>
-         </div>
-         <div class="col">
-            <div class="p-2 border bg-light">
-               <div class="dropdown ">
-                  <a class="border text-decoration-none text-black d-flex w-fit btn-sm" href="#" role="button"
-                     id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                     <span>Products</span>
-                     <div class="d-flex ms-2">
-                        <i class="ri-arrow-down-s-line"></i>
-                     </div>
-                  </a>
 
-                  <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuLink">
-                     <li><a class="dropdown-item" href="#">Summer Wears</a></li>
-                     <li><a class="dropdown-item" href="#">Jeans</a></li>
-                     <li><a class="dropdown-item" href="#">Dresses</a></li>
-                     <li><a class="dropdown-item" href="#">Shirt</a></li>
-                     <li><a class="dropdown-item" href="#">Sweaters</a></li>
-                  </ul>
+            <datalist id="sizeLegend">
+               <option value="5">
+               <option value="10">
+               <option value="15">
+               <option value="20">
+               <option value="25">
+               <option value="30">
+               <option value="35">
+               <option value="40">
+               <option value="45">
+               <option value="60">
+            </datalist>
+
+            <div class="p-3 border-bottom bg-light border-2 border-myprimary">
+               <h5>Filter by Price</h5>
+               
+               <label for="min-price" class="form-label">Min price - $5</label>
+               <input id="min-price" type="range" class="form-range range-slider-input" name="minSize" class="range-slider-input" type="range" min="0" max="60" value="0" list="sizeLegend">
+
+               <label for="max-price" class="form-label">Max price - $60</label>
+               <input id="max-price" type="range" class="form-range range-slider-input" name="maxSize" class="range-slider-input" type="range" min="0" max="60" value="60" list="sizeLegend">               
+            </div>
+
+         </div>
+
+         <div class="col mt-5 mt-md-0">
+
+            <div class="hstack gap-3 container p-0 mb-5">               
+               <div class=" border ms-auto">
+                  <div class="btn-group">
+                     <button class="btn btn-sm text-md" type="button">
+                        Sort by
+                     </button>
+                     <button type="button" class="btn btn-sm btn-secondary bg-white dropdown-toggle-split border-0"
+                        data-bs-toggle="dropdown">
+                        <i class="ri-arrow-down-s-line text-black border-0"></i>
+                     </button>
+                     <ul class="dropdown-menu text-md "
+                        style="backdrop-filter: blur(6px) saturate(180%) !important; background-color: rgba(255, 255, 255) !important;">
+                        <li><a class="dropdown-item cursor-pointer" data-sort="published-date:asc">Older products</a></li>
+                        <li><a class="dropdown-item cursor-pointer" data-sort="published-date:desc">Latest</a></li>
+                        <li><a class="dropdown-item cursor-pointer" data-sort="price:asc">Lower Cost</a></li>
+                        <li><a class="dropdown-item cursor-pointer" data-sort="price:desc">Higher Cost</a></li>
+                     </ul>
+                  </div>
                </div>
             </div>
+
+            {% if products %}
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mix-it " data-ref="container">
+
+               {% for product in products %}
+
+               <div class="product-card mix {{product.category.slug}} " data-size="{{product.price}}" data-published-date="{{product.date_posted}}" data-price="{{product.price}}">
+                  <div class="product-card-image ">
+                     <img src="{{product.product_image_1.url}}" alt="Product Image" class="image border ">
+                     <div class="overlay">
+                        {% if request.user.is_authenticated %}
+                        <div class="icons ">
+                           <a href="" class="text-decoration-none">
+                              <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                           </a>
+                           <a href="" class="text-decoration-none">
+                              <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                           </a>
+                        </div>
+                        {% else %}
+                        <div class="icons ">
+                           <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                              <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                           </a>
+                           <a href="{% url 'accounts:login' %}" class="text-decoration-none">
+                              <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
+                           </a>
+                        </div>
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="p-3 text-center mt-2">
+                     <h6 class="font-medium">
+                        <a href="{% url 'product_detail' product.slug %}"
+                           class="product-name text-decoration-none">{{product.product_name |truncatewords:5}}</a>
+                     </h6>
+                     <span class="d-flex justify-content-center">
+                        <p class="mx-2">${{product.price}}</p>
+                        {% if product.discount_price %}
+                        <p class="mx-2 text-decoration-line-through font-medium text-mysecondary">
+                           ${{product.discount_price}}</p>
+                        {% endif %}
+                     </span>
+                  </div>
+               </div>
+
+               {% endfor %}
+
+            </div>
+            {% else %}
+            <div class="col-10 mx-auto text-center bg-white px-5 p-4 rounded-md my-shadow">
+               <i class="ri-error-warning-fill text-3xl text-danger"></i>
+               <h5 class="mt-3">No Products</h5>
+            </div>
+            {% endif %}
+
          </div>
       </div>
    </div>
@@ -76,6 +179,63 @@
 
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 {% endblock main %}
+{% block scripts %}
+<script>
+   var containerEl = document.querySelector('.mix-it');
+   var container = document.querySelector('[data-ref="container"]');
+   var minSizeRangeInput = document.querySelector('[name="minSize"]');
+   var maxSizeRangeInput = document.querySelector('[name="maxSize"]');
+   var mixer = mixitup(containerEl, {
+      animation: {
+         effects: 'fade scale stagger(50ms)' // Set a 'stagger' effect for the loading animation
+      },
+      load: {
+         filter: 'none',
+         sort: 'published-date:desc' // Ensure all targets start from hidden (i.e. display: none;)
+      }
+   });
+
+   function getRange() {
+      var min = Number(minSizeRangeInput.value);
+      var max = Number(maxSizeRangeInput.value);
+
+      return {
+         min: min,
+         max: max
+      };
+   }
+
+   function handleRangeInputChange() {
+      mixer.filter(mixer.getState().activeFilter);
+   }
+   function filterTestResult(testResult, target) {
+      var size = Number(target.dom.el.getAttribute('data-size'));
+      var range = getRange();
+
+      if (size < range.min || size > range.max) {
+         testResult = false;
+      }
+
+      return testResult;
+   }
+   mixitup.Mixer.registerFilter('testResultEvaluateHideShow', 'range', filterTestResult);
+   minSizeRangeInput.addEventListener('change', handleRangeInputChange);
+   maxSizeRangeInput.addEventListener('change', handleRangeInputChange);
+
+   containerEl.classList.add('mixitup-ready');
+   
+
+   mixer.show()
+      .then(function () {         
+
+         mixer.configure({
+            animation: {
+               effects: 'fade scale'
+            }
+         });
+      });
+</script>
+{% endblock scripts %}

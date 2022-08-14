@@ -26,11 +26,12 @@
     <div class="row  hero-style  flex-row-reverse">
       <div class="col-sm-12 col-md-6 her-carousel d-none d-md-block">
         <div class="pic-ctn mx-auto">
-          <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
-          <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
+          <img src="{% static 'img/thrift-img/thrift_img_0353.jpg' %}" alt="" class="pic">          
+          <img src="{% static 'img/thrift-img/thrift_img_54.jpg' %}" alt="" class="pic">          
+          <img src="{% static 'img/thrift-img/thrift_img_075.jpg' %}" alt="" class="pic">          
+          <img src="{% static 'img/thrift-img/thrift_img_0985.jpg' %}" alt="" class="pic">
+          <img src="{% static 'img/thrift-img/thrift_img_04335.jpg' %}" alt="" class="pic">
+          <img src="{% static 'img/thrift-img/thrift_img_0353.jpg' %}" alt="" class="pic">
         </div>
 
       </div>
@@ -116,13 +117,11 @@
           <div class="owl-stage">
 
             {% for product in latest_products %}
-                          
+
             <div class="owl-item">
               <div class="product-card">
                 <div class="product-card-image">
-                  <img
-                    src="{{product.product_image_1.url}}"
-                    alt="Product Image" class="image border">
+                  <img src="{{product.product_image_1.url}}" alt="Product Image" class="image border">
                   <div class="overlay">
                     {% if request.user.is_authenticated %}
                     <div class="icons ">
@@ -150,12 +149,13 @@
                   <span class="d-flex justify-content-center">
                     <p class="mx-2">${{product.price}}</p>
                     {% if product.discount_price %}
-                    <p class="mx-2 text-decoration-line-through font-medium text-mysecondary">${{product.discount_price}}</p>
+                    <p class="mx-2 text-decoration-line-through font-medium text-mysecondary">
+                      ${{product.discount_price}}</p>
                     {% endif %}
                   </span>
                 </div>
               </div>
-            </div>      
+            </div>
 
             {% endfor %}
           </div>
@@ -206,13 +206,13 @@
                 <span> See More</span>
               </button>
             </div>
-            <a class="card-link" href="product_female"></a>
+            <a class="card-link" href="{% url 'product_female' %}"></a>
           </div>
         </div>
 
         <div class="col-md-4 col-sm-12">
           <div class="card"
-            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/static/img/thrift-img/tthrift_img_19.jpg');">
+            style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/static/img/thrift-img/thrift_img_0843.jpg');">
             <div class="card-category">
               <h3>Kid's Clothing</h3>
             </div>

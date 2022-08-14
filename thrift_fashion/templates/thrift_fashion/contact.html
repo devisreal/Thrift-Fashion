@@ -15,6 +15,10 @@
     <h1>Contact Page</h1>
 </div>
 
+<div class="mt-3">
+    {% include 'partials/messages.html' %}
+</div>
+
 <!-- Contact Details -->
 
 <div class="container" style="margin-top: 130px;">
@@ -72,7 +76,7 @@
 
 <!-- Contact Form -->
 
-<section class="d-flex col-11" style="margin-top: 50px; margin-left: 35px;">
+<section class="d-flex col-12 col-md-11 mx-auto" style="margin-top: 50px;">
     <div class="container text-start">
         <div class="p-4">
             <h3 class="font-normal text-start">Message Us</h3>
@@ -80,7 +84,7 @@
         <div class="row gx-5 mx-auto">
             <!-- form -->
 
-            <div class=" col-7 p-4">
+            <div class=" col-md-7 col-12 p-md-4">
                 <form class="" action="{% url 'contact' %}" method="POST">
                     {% csrf_token %}
                     <div class="row row-cols-1 row-cols-md-2 g-2 g-lg-3 mb-2">
@@ -123,7 +127,7 @@
             </div>
             <!-- form img -->
 
-            <div class="col-5 rounded-2" id="form-bg"></div>
+            <div class="col-md-5 d-none d-md-inline rounded-2" id="form-bg"></div>
         </div>
     </div>
 </section>
@@ -140,7 +144,7 @@
 
 <!-- footer -->
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 

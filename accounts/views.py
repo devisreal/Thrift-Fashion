@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
+from .forms import EditProfileForm, AddressForm
 
 
 # Create your views here.
@@ -21,7 +22,7 @@ def login(request):
             if user.is_active:
                user_login(request, user)
                messages.success(request, f'Welcome {username}')
-               return redirect('home')
+               return redirect('accounts:user_settings')
             else:                
                messages.warning(request, 'Account is not active')
                return render(request, 'accounts/login.html')                         
@@ -29,8 +30,6 @@ def login(request):
             messages.error(request, 'Please enter valid details')
             return render(request, 'accounts/login.html')
    return render(request, 'accounts/login.html')
-
-
 
 # ! Register Users View
 def register(request):
@@ -73,12 +72,40 @@ def register(request):
                      request, 'Account created successfully, please complete your profile'
                   )
                # if user is not a staff te user is redirected to complete his/her profile
-               return redirect('home')
+               return redirect('accounts:user_settings')
       else:
          # If both password entered by the user don't match return erroe massage
          messages.error(request, 'Passwords do not match')
          return redirect('register')
    return render(request, 'accounts/register.html')
+
+
+# ! Setting View for Users
+# * @login_required makes sure a user is logged in before accessing a page
+@login_required
+def user_settings(request):
+   if request.method == 'POST':
+         edit_profile_form = EditProfileForm(request.POST or None, request.FILES, instance=request.user)
+         address_form = AddressForm(request.POST)
+         if edit_profile_form.is_valid():
+            edit_profile_form.save()
+            messages.success(request, 'Profile updated successfully')
+            return redirect('accounts:user_settings')
+
+         if address_form.is_valid():
+            instance = address_form.save(commit=False)
+            instance.user = request.user         
+            instance.save()
+            messages.success(request, 'Testimony successful, thank you 🙂')
+            return redirect('accounts:user_settings')
+   else:
+      edit_profile_form = EditProfileForm(instance=request.user)
+      address_form = AddressForm()
+   context = {
+        'edit_profile_form': edit_profile_form,
+         'address_form': address_form
+   }
+   return render(request, 'accounts/settings.html', context)
 
 
 # ! Logout View for Users

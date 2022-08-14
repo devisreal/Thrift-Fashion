@@ -9,33 +9,29 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-import environ
+import django_heroku
+import dj_database_url
+from decouple import config, Csv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
-env = environ.Env(
-    DEBUG=(bool, True),
-)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-environ.Env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+MODE=config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,9 +52,9 @@ INSTALLED_APPS = [
     'cloudinary'
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = [    
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -90,18 +86,29 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+
+
+if config('MODE')=="dev":
+   DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'thrift_fashion',
         'USER': 'root',
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': 3306,
     }
 }
+# production
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+        )
+    }
 
-
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -139,13 +146,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # Static and Media Files
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static',
 ]
-STATIC_ROOT = (BASE_DIR/'assets')
-
-MEDIA_URL = 'media/'
+STATIC_ROOT = (BASE_DIR / 'staticfiles')
+MEDIA_URL = '/media/'
 MEDIA_ROOT = (BASE_DIR / 'media')
 
 cloudinary.config(
@@ -172,3 +178,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'accounts:login'
+django_heroku.settings(locals())

@@ -46,9 +46,14 @@
                   </span>
                   <span class="d-flex mt-3">
                      
-                     <a href="" class="btn btn-myprimary">
+                     <a href="{% url 'cart:add' product.slug %}" class="btn btn-myprimary">
                         <i class="ri-shopping-cart-2-fill px-2"></i>
-                        <span>Add To Cart</span>
+                        <span>Add to Cart</span>
+                     </a>
+
+                     <a href="{% url 'cart:remove' product.slug %}" class="btn btn-danger ms-2">
+                        <i class="ri-shopping-cart-2-fill px-2"></i>
+                        <span>Remove from Cart</span>
                      </a>
                   </span>
                   <hr class="container my-4">

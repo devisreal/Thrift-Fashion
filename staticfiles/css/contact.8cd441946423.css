@@ -1,0 +1,44 @@
+body{
+    overflow-x: hidden;
+}
+
+.form-text {
+    padding-top: 30px;
+    color: black;
+}
+.form-text div input::placeholder{
+    color: black !important;
+}
+
+.form-text div textarea::placeholder{
+    color: black !important;
+}
+
+.form-text input,
+.form-text textarea {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    /* border: 1px solid transparent !important; */
+    border-bottom: 1px solid black !important;
+    color: black !important;
+}
+
+#form-bg{
+    display: grid;
+    height: 70vh;
+    place-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../img/contact-img/thrift-img_1.c1a5bb63d913.jpg");
+}
+
+a.contact-link{
+  color: #0099ff;  
+}
+
+a.contact-link:hover {
+    color: #a2d9ff !important;
+  }
+

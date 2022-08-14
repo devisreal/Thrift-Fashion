@@ -3,13 +3,14 @@
 {% url 'about' as about %}
 {% url 'products' as products %}
 {% url 'contact' as contact %}
-{% url 'cart' as cart %}
+{% url 'cart:cart' as cart %}
 {% url 'accounts:login' as login %}
 {% url 'accounts:register' as register %}
+{% url 'accounts:user_settings' as settings %}
 
 {% if request.user.is_authenticated %}
 <nav
-   class="navbar navbar-expand-lg navbar-light container rounded-xl fixed-top {% if request.path == register %} sticky-top top-0 {% endif %} mt-3 my-shadow py-0">
+   class="navbar navbar-expand-lg navbar-light container rounded-xl fixed-top {% if request.path == register or request.path == settings %} sticky-top top-0 {% endif %} mt-3 my-shadow py-0">
    <div class="container-fluid">
       <a class="navbar-brand font-jost d-flex align-items-center" href="{% url 'home' %}">
          <img src="{% static 'img/logo.png' %}" class="img-fluid me-2" style="width: 50px;" alt="">
@@ -21,15 +22,15 @@
          <i class="ri-menu-3-fill text-2xl "></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <form action="" class="mx-auto w-50 d-none d-md-inline">
+         <form action="{% url 'search_products' %}" method="POST" class="mx-auto w-50 d-none d-md-inline">
+            {% csrf_token %}
             <div class="input-group border rounded-2">
-               <input type="text" class="form-control text-sm border-0 font-normal" type="text"
+               <input type="text" name="search" class="form-control text-sm border-0 font-normal" type="text"
                   placeholder="Search Products">
                <span class="input-group-text bg-white border-0">
-                  <a href="{% url 'search_products' %}" class="text-decoration-none border-0 bg-white"
-                     style="outline: none;">
+                  <button class="text-decoration-none border-0 bg-white" style="outline: none;">
                      <i class="ri-search-eye-line text-lg text-myprimary"></i>
-                  </a>
+                  </button>
                </span>
             </div>
          </form>
@@ -49,7 +50,7 @@
                   href="{% url 'contact' %}">Contact</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart' %}">
+               <a class="nav-link icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart:cart' %}">
                   <i class="ri-shopping-cart-2-fill text-lg"></i>
                </a>
             </li>
@@ -58,13 +59,16 @@
             <li class="nav-item dropdown m-0 list-unstyled w-fit mx-auto">
                <button class=" btn text-white " href="" id="navbarDarkDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="{% if request.user.profile_image %} {{request.user.profile_image.url}} {% else %} {% static 'img/default_profile.png' %} {% endif %}" alt="User Avatar"
-                     class="img-fluid rounded-full nav-avatar" style="width: 40px;height: 40px;object-fit: cover;">
+                  <img
+                     src="{% if request.user.profile_image %} {{request.user.profile_image.url}} {% else %} {% static 'img/default_profile.png' %} {% endif %}"
+                     alt="User Avatar" class="img-fluid rounded-full nav-avatar"
+                     style="width: 40px;height: 40px;object-fit: cover;">
                </button>
                <ul class="dropdown-menu nav-dropdown  dropdown-menu-start dropdown-menu-lg-end mt-2"
                   aria-labelledby="navbarDarkDropdownMenuLink">
                   <li>
-                     <a href="" class="dropdown-item font-medium d-flex align-items-center m-0 p-0 px-3">
+                     <a href="{% url 'accounts:user_settings' %}"
+                        class="dropdown-item font-medium d-flex align-items-center m-0 p-0 px-3 {% if request.path == settings %} text-primary {% endif %}">
                         <i class="ri-settings-3-fill text-xl"></i>&nbsp;
                         Settings
                      </a>
@@ -103,12 +107,13 @@
          <i class="ri-menu-3-fill text-2xl "></i>
       </button>
       <div class="collapse navbar-collapse pb-2 pb-md-0" id="navbarSupportedContent">
-         <form action="" class="mx-auto w-50 d-none d-md-inline">
+         <form action="{% url 'search_products' %}" method="POST" class="mx-auto w-50 d-none d-md-inline">
+            {% csrf_token %}
             <div class="input-group border rounded-2">
-               <input type="text" class="form-control text-sm border-0 font-normal" type="text"
+               <input type="text" name="search" class="form-control text-sm border-0 font-normal" type="text"
                   placeholder="Search Products">
                <span class="input-group-text bg-white border-0">
-                  <button href="" class="text-decoration-none border-0 bg-white" style="outline: none;">
+                  <button class="text-decoration-none border-0 bg-white" style="outline: none;">
                      <i class="ri-search-eye-line text-lg text-myprimary"></i>
                   </button>
                </span>
@@ -134,15 +139,16 @@
          </ul>
          <div class="d-flex ms-md-3">
             {% if request.user.is_authenticated %}
-               <a class="nav-link icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart' %}">
-                  <i class="ri-shopping-cart-2-fill text-xl"></i>
-               </a>
+            <a class="nav-link icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart:cart' %}">
+               <i class="ri-shopping-cart-2-fill text-xl"></i>
+            </a>
             {% else %}
-               <a class="nav-link icon {% if request.path == cart %} active {% endif %} " href="{% url 'accounts:login' %}">
-                  <i class="ri-shopping-cart-2-fill text-xl"></i>
-               </a>
+            <a class="nav-link icon {% if request.path == cart %} active {% endif %} "
+               href="{% url 'accounts:login' %}">
+               <i class="ri-shopping-cart-2-fill text-xl"></i>
+            </a>
             {% endif %}
-               <a class="nav-link icon {% if request.path == login or request.path == register %} active {% endif %} "
+            <a class="nav-link icon {% if request.path == login or request.path == register %} active {% endif %} "
                href="{% url 'accounts:login' %}">
                <i class="ri-user-3-fill text-xl ms-1"></i>
             </a>

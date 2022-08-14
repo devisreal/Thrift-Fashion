@@ -1,0 +1,266 @@
+#hero {
+  height: 95vh;
+  background-image: linear-gradient(
+      62deg,
+      rgba(0, 0, 0, 0.2) 20%,
+      rgba(0, 0, 0, 0.2) 80%
+    ),
+    url("../img/slanted-gradient.5e3162642b87.png");
+  background-position: center;
+  clip-path: ellipse(100% 55% at 48% 44%);
+  background-size: cover;
+}
+#hero .hero-style {
+  padding-top: 150px;
+}
+#hero .hero-text {
+  padding-top: 50px;
+}
+
+.pic-ctn {
+  width: 100vw;
+  height: 200px;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+  position: relative;
+  width: 350px;
+  height: 350px ;
+}
+
+.pic-ctn > img {
+  position: absolute;
+  top: 0;
+  height: 350px ;
+  object-fit: cover;
+  opacity: 0;
+  animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 2s;
+}
+img:nth-child(3) {
+  animation-delay: 4s;
+}
+img:nth-child(4) {
+  animation-delay: 6s;
+}
+img:nth-child(5) {
+  animation-delay: 8s;
+}
+
+/* feature */
+.blob h5 i {
+  font-size: 40px;
+  color: var(--blue-shade-primary);
+}
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  position: relative;
+  padding-top: 10px;
+  left: 100px;
+  background-color: var(--gray-200);
+  height: 70px;
+  width: 70px;
+}
+.card-title {
+  margin-top: 20px;
+}
+.card-body:hover .blob {
+  background-color: var(--blue-shade-primary);
+}
+.card-body:hover .blob i {
+  color: var(--white);
+}
+
+/* arrivals carousel styling */
+#client-testimonial-carousel {
+  min-height: 200px;
+}
+/* arraivals ending */
+
+/* categories */
+.padded {
+  padding: 100px 0;
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+}
+.avatar-bordered {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+}
+
+
+.card {
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 22px;
+}
+.card-description p {
+  font-size: 15px;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+
+.product-card-image {
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.product-card:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.icons {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.filter-link {
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+/* From uiverse.io by @adamgiebl */
+.cssbuttons-io {
+  position: relative;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  border: none;
+  background: linear-gradient(to right, rgb(0, 153, 255), rgb(162, 217, 255));
+  color: ghostwhite;
+  overflow: hidden;
+}
+
+.cssbuttons-io svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8em 1.2em 0.8em 1.05em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io::before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.95);
+}

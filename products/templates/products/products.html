@@ -20,9 +20,9 @@
    {% include 'partials/messages.html' %}
 </div>
 
-<div class="container p-0" style="margin-top: 120px;">
+<div class="container p-0 px-3" style="margin-top: 120px;">
    <h2 class="text-center mb-5">Categories</h2>
-   <div class="row row-cols-1 row-cols-md-3 g-3">
+   <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
          <div class=" p-3 text-white bg-dark rounded-3 category-card male">
             <a href="{% url 'product_male' %}" class="btn btn-success font-medium " type="button">Male</a>
@@ -45,7 +45,7 @@
 
 
 <div class="hstack gap-3 container p-0">
-   <div class="font-jost col-3 d-flex justify-content-around">
+   <div class="font-jost col-3 d-md-flex d-block justify-content-around">
       <a class="text-decoration-none filter-link" data-filter="all">All</a>
       <a class="text-decoration-none filter-link" data-filter=".men">Men</a>
       <a class="text-decoration-none filter-link" data-filter=".women">Women</a>
@@ -63,9 +63,10 @@
          </button>
          <ul class="dropdown-menu text-md "
             style="backdrop-filter: blur(6px) saturate(180%) !important; background-color: rgba(255, 255, 255) !important;">
-            <li><a class="dropdown-item" href="#">Price</a></li>
-            <li><a class="dropdown-item" href="#">Date</a></li>
-            <li><a class="dropdown-item" href="#">Date</a></li>
+            <li><a class="dropdown-item cursor-pointer" data-sort="published-date:asc">Older products</a></li>
+            <li><a class="dropdown-item cursor-pointer" data-sort="published-date:desc">Latest</a></li>
+            <li><a class="dropdown-item cursor-pointer" data-sort="price:asc">Lower Cost</a></li>
+            <li><a class="dropdown-item cursor-pointer" data-sort="price:desc">Higher Cost</a></li>            
          </ul>
       </div>
    </div>
@@ -74,20 +75,20 @@
 <div class="container p-0 mt-5">
 
    {% if products %}
-   <div class="row row-cols-2 row-cols-lg-4 g-4 mix-it">
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mix-it">
 
       {% for product in products %}
 
-      <div class="product-card mix {{product.category.slug}}">
+      <div class="product-card mix {{product.category.slug}}" data-published-date="{{product.date_posted}}" data-price="{{product.price}}">
          <div class="product-card-image ">
             <img src="{{product.product_image_1.url}}" alt="Product Image" class="image border ">
             <div class="overlay">
                {% if request.user.is_authenticated %}
                <div class="icons ">
-                  <a href="" class="text-decoration-none">
+                  <a href="{% url 'cart:add' product.slug %}" class="text-decoration-none">
                      <i class="ri-shopping-cart-2-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
                   </a>
-                  <a href="" class="text-decoration-none">
+                  <a href="#" class="text-decoration-none">
                      <i class="ri-heart-fill bg-dark p-2 rounded-circle text-white mx-2"></i>
                   </a>
                </div>
@@ -140,7 +141,8 @@
          effects: 'fade scale stagger(50ms)' // Set a 'stagger' effect for the loading animation
       },
       load: {
-         filter: 'none' // Ensure all targets start from hidden (i.e. display: none;)
+         filter: 'none',
+         sort: 'published-date:desc' // Ensure all targets start from hidden (i.e. display: none;)
       }
    });
 

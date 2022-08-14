@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>{% block title %}{% endblock title %}</title>
+   <link rel="shortcut icon" href="{% static 'img/footer-img.jpg' %}" type="image/x-icon">
 
 
    <!-- Fonts -->
@@ -13,36 +15,46 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-   >
+      rel="stylesheet">
 
    <!-- CSS Vendors -->
    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
    <!-- Icons -->
    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-      
+
 
    <!-- CSS Custom -->
    <link rel="stylesheet" href="{% static 'css/config.css' %}">
    {% block stylesheets %}{% endblock stylesheets %}
 
 </head>
+{% url 'home' as home %}
+{% url 'about' as about %}
+{% url 'contact' as contact %}
+{% url 'cart:cart' as cart %}
 {% url 'accounts:login' as login %}
 {% url 'accounts:register' as register %}
-<body class="{% if request.path == login or request.path == register %} bg-gray-100 {% endif %}">
+{% url 'accounts:user_settings' as settings %}
+
+<body
+   class="{% if request.path == login or request.path == register or request.path == settings %} bg-gray-100 {% endif %}">
 
    <!-- <div class="bg-opacity-50"></div> -->
    {% include 'partials/navbar.html' %}
-   {% block main %}{% endblock main %}   
-   
-   {% if not request.path == login or request.path == register %}
-      {% include 'partials/footer.html' %}
+   {% block main %}{% endblock main %}
+
+   {% if not request.path == settings %}
+   {% include 'partials/footer.html' %}
    {% endif %}
+
+
+
    <!-- Javascript Vendors -->
 
    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-   <script src="{% static 'js/mixitup.min.js' %}"></script>   
+   <script src="{% static 'js/mixitup.min.js' %}"></script>
    {% block scripts %}{% endblock scripts %}
 </body>
+
 </html>
