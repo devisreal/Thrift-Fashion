@@ -13,8 +13,7 @@ def cart(request):
    cart_num = len(mycart.items.all())
    context = {
       'mycart': mycart,
-      'total_expense': total_expense,
-      'cart_num': cart_num
+      'total_expense': total_expense,      
    }
    return render(request, 'cart/cart.html', context)
 

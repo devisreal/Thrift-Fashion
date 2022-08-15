@@ -51,14 +51,13 @@
                   href="{% url 'contact' %}">Contact</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link btn icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart:cart' %}">
-                  <!-- items_in_cart -->
-                  <i class="ri-shopping-cart-2-fill text-lg"></i>
-                  <span class="position-absolute top-0 mt-2  translate-middle-x badge rounded-pill bg-danger">
-                     {{ request.user|items_in_cart }}
-                     <span class="visually-hidden">unread messages</span>
+               <a class="nav-link btn icon {% if request.path == cart %} active {% endif %} " href="{% url 'cart:cart' %}">                  
+                  <i class="ri-shopping-cart-2-fill text-xl"></i>
+                  <span class="translate-middle-y badge rounded-pill bg-danger">
+                     {{ request.user|items_in_cart }}                     
                   </span>
                </a>
+               
             </li>
          </ul>
          <div class="d-flex">
