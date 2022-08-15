@@ -1,0 +1,66 @@
+<!-- The html page this page is extending -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- The css styles used in the page -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+<!-- The title of the page -->
+{% block title %}Add Address || Thrift Fashion {% endblock title %}
+<!-- The content of the page -->
+{% block main %}
+
+<div class="mt-3">
+   {% include 'partials/messages.html' %}
+</div>
+
+<div class="container px-4 my-5">
+   <div class="row gx-5">
+      
+      <div class="col-md-6 col-11 mx-auto">
+         <div class="p-3 rounded-md my-shadow bg-white ">
+            <h4 class="text-center">Add Address</h4>
+            <form class="mt-3" method="POST" enctype="multipart/form-data">
+               {% csrf_token %}
+
+               <div class="form-floating mb-2">
+                  {{ address_form.address_type }}
+                  <label for="" class="form-label text-black">Address Type</label>
+               </div>
+
+               <div class="form-floating mb-2">
+                  {{ address_form.address_line_1 }}
+                  <label for="" class="form-label text-black">Address Line 1</label>
+               </div>
+
+               <div class="form-floating mb-2">
+                  {{ address_form.address_line_2 }}
+                  <label for="" class="form-label text-black">Address Line 2</label>
+               </div>
+
+
+               <div class="form-floating mb-2">
+                  {{ address_form.city }}
+                  <label for="" class="form-label text-black">City</label>
+               </div>
+
+               <div class="form-floating mb-2">
+                  {{ address_form.state }}
+                  <label for="" class="form-label text-black">State</label>
+               </div>
+
+
+               <div class="form-floating mb-2">
+                  {{ address_form.zip_code }}
+                  <label for="" class="form-label text-black">Zip Code</label>
+               </div>
+               <div class="w-fit ms-auto mt-4">
+                  <button type="submit" class="btn btn-success btn-sm font-medium">Add Address</button>
+               </div>
+            </form>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+{% endblock main %}

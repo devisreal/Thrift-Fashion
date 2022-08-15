@@ -36,9 +36,10 @@
 {% url 'accounts:login' as login %}
 {% url 'accounts:register' as register %}
 {% url 'accounts:user_settings' as settings %}
+{% url 'accounts:add_address' as add_address %}
 
 <body
-   class="{% if request.path == login or request.path == register or request.path == settings %} bg-gray-100 {% endif %}">
+   class="{% if request.path == login or request.path == register or request.path == settings or request.path == add_address %} bg-gray-100 {% endif %}">
 
    <!-- <div class="bg-opacity-50"></div> -->
    {% include 'partials/navbar.html' %}

@@ -155,9 +155,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = (BASE_DIR / 'media')
 
 cloudinary.config(
-    cloud_name = 'freethinkers',
-    api_key = '586783729867692',
-    api_secret = 'jHrimLjZMDUoFkX9LJ3PRYi3KT4'
+    cloud_name = config('CLOUD_NAME'),
+    api_key = config('API_KEY'),
+    api_secret = config('API_SECRET')
 )
 
 # Django Messages

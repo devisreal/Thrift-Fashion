@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import User
+from .models import User, Address, CreditCardDetails
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
-from .forms import EditProfileForm, AddressForm
+from .forms import EditProfileForm, AddressForm, Add_Card_Form
 
 
 # Create your views here.
@@ -85,28 +85,79 @@ def register(request):
 @login_required
 def user_settings(request):
    if request.method == 'POST':
-         edit_profile_form = EditProfileForm(request.POST or None, request.FILES, instance=request.user)
-         address_form = AddressForm(request.POST)
+         edit_profile_form = EditProfileForm(request.POST or None, request.FILES, instance=request.user)         
          if edit_profile_form.is_valid():
             edit_profile_form.save()
             messages.success(request, 'Profile updated successfully')
             return redirect('accounts:user_settings')
-
-         if address_form.is_valid():
-            instance = address_form.save(commit=False)
-            instance.user = request.user         
-            instance.save()
-            messages.success(request, 'Testimony successful, thank you 🙂')
+         else:
+            messages.error(request, 'An error occured')
             return redirect('accounts:user_settings')
    else:
-      edit_profile_form = EditProfileForm(instance=request.user)
-      address_form = AddressForm()
+      edit_profile_form = EditProfileForm(instance=request.user)  
+
+   address = Address.objects.filter(user=request.user) 
+   card_details = CreditCardDetails.objects.filter(user=request.user)
    context = {
-        'edit_profile_form': edit_profile_form,
-         'address_form': address_form
+      'edit_profile_form': edit_profile_form,
+      'address': address,
+      'card_details': card_details
    }
    return render(request, 'accounts/settings.html', context)
 
+
+@login_required
+def add_address(request):
+   if request.method == 'POST':
+      address_form = AddressForm(request.POST)
+      if address_form.is_valid():
+         instance = address_form.save(commit=False)
+         instance.user = request.user         
+         instance.save()
+         messages.success(request, 'Your address has been added!')
+         return redirect('accounts:user_settings')
+      else:
+         messages.error(request, 'An error occured')
+         return redirect('accounts:add_address')
+   else:
+      address_form = AddressForm()
+   context = {
+        'address_form': address_form
+   }
+   return render(request, 'accounts/add_address.html', context)
+
+def delete_address(request, id):
+   address = Address.objects.get(id=id)
+   address.delete()
+   messages.success(request, 'Address deleted successfully')
+   return redirect('accounts:user_settings')
+
+@login_required
+def add_card_details(request):
+   if request.method == 'POST':
+      card_details_form = Add_Card_Form(request.POST)
+      if card_details_form.is_valid():
+         instance = card_details_form.save(commit=False)
+         instance.user = request.user         
+         instance.save()
+         messages.success(request, 'Your card details has been added!')
+         return redirect('accounts:user_settings')
+      else:
+         messages.error(request, 'An error occured')
+         return redirect('accounts:add_card_details')
+   else:
+      card_details_form = Add_Card_Form()
+   context = {
+      'card_details_form': card_details_form
+   }
+   return render(request, 'accounts/add_card_details.html', context)
+
+
+def delete_card_details(request, id):
+   card = CreditCardDetails.objects.get(id=id)
+   card.delete()
+   messages.success(request, 'Card details deleted successfully')
+   return redirect('accounts:user_settings')
 
 # ! Logout View for Users
 # * @login_required makes sure a user is logged in before accessing a page

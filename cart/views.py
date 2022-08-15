@@ -3,15 +3,21 @@ from django.contrib.auth.decorators import login_required
 from cart.models import Cart_Item, Cart
 from products.models import Product
 from django.contrib import messages
+import django.template.library 
 
 @login_required
 def cart(request):   
    
    mycart = Cart.objects.get(user=request.user, ordered=False)   
+   total_expense = mycart.get_total() + 25
+   cart_num = len(mycart.items.all())
    context = {
       'mycart': mycart,
+      'total_expense': total_expense,
+      'cart_num': cart_num
    }
    return render(request, 'cart/cart.html', context)
+
 
 @login_required
 def add_to_cart(request, slug):

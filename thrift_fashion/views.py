@@ -5,7 +5,7 @@ from products.models import Product
 
 # Create your views here.
 def home(request):
-    latest_products = Product.objects.all().order_by('-id')[:4]
+    latest_products = Product.objects.all().order_by('-id')[:6]
 
     context = {
         'latest_products': latest_products,

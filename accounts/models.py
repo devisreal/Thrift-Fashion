@@ -48,6 +48,9 @@ class Address(models.Model):
    def __str__(self):
       return f"{self.user.username}'s Address"
 
+   class Meta:
+      verbose_name_plural = 'Addresses'
+
 
 # ? User Credit Card Details
 class CreditCardDetails(models.Model):
@@ -71,9 +74,12 @@ class CreditCardDetails(models.Model):
    # * The user's credit card CVV
    credit_card_cvv = models.CharField(max_length=3, blank=True)
    # * The user's credit card name
-   credit_card_name = models.CharField(max_length=50, blank=True)
+   credit_card_name = models.CharField(max_length=100, blank=True)
    
    
    
    def __str__(self):
       return f"{self.user.username}'s Credit Card Details"
+
+   class Meta:
+      verbose_name_plural = 'Credit Card Details'      
