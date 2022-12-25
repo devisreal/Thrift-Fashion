@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_heroku
+
 import dj_database_url
 from decouple import config, Csv
 import cloudinary
@@ -178,4 +178,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'accounts:login'
-django_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://thriftfashion.up.railway.app'
+]
